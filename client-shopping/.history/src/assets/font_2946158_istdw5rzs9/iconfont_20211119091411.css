@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "iconfont-shopping"; /* Project id 2946158 */
+  src: url('//at.alicdn.com/t/font_2946158_zn0uf1c1bp.woff2?t=1637284434820') format('woff2'),
+       url('//at.alicdn.com/t/font_2946158_zn0uf1c1bp.woff?t=1637284434820') format('woff'),
+       url('//at.alicdn.com/t/font_2946158_zn0uf1c1bp.ttf?t=1637284434820') format('truetype');
+}
+
+.iconfont-shopping {
+  font-family: "iconfont-shopping" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shop-lejiexiangqingicon:before {
+  content: "\e602";
+}
+
+.shop-mima:before {
+  content: "\e620";
+}
+
+.shop-xingbie:before {
+  content: "\e7f8";
+}
+
+.shop-zhucetianjiahaoyou:before {
+  content: "\e8ca";
+}
+
+.shop-youxiang:before {
+  content: "\e908";
+}
+
+.shop-zhanghaodenglu:before {
+  content: "\e70d";
+}
+
+.shop-daohang:before {
+  content: "\eaf2";
+}
+
+.shop-dianhua:before {
+  content: "\e8ad";
+}
+
+.shop-denglu:before {
+  content: "\e611";
+}

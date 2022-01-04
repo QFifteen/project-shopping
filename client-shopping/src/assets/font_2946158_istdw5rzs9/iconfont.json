@@ -1,0 +1,65 @@
+{
+  "id": "2946158",
+  "name": "shopping",
+  "font_family": "iconfont-shopping",
+  "css_prefix_text": "shop-",
+  "description": "服饰品牌电商项目",
+  "glyphs": [
+    {
+      "icon_id": "144706",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "436000",
+      "name": "性别",
+      "font_class": "xingbie",
+      "unicode": "e7f8",
+      "unicode_decimal": 59384
+    },
+    {
+      "icon_id": "1727462",
+      "name": "227注册、添加好友",
+      "font_class": "zhucetianjiahaoyou",
+      "unicode": "e8ca",
+      "unicode_decimal": 59594
+    },
+    {
+      "icon_id": "4552970",
+      "name": "邮箱",
+      "font_class": "youxiang",
+      "unicode": "e908",
+      "unicode_decimal": 59656
+    },
+    {
+      "icon_id": "4676491",
+      "name": "账号登录",
+      "font_class": "zhanghaodenglu",
+      "unicode": "e70d",
+      "unicode_decimal": 59149
+    },
+    {
+      "icon_id": "5387526",
+      "name": "导航",
+      "font_class": "daohang",
+      "unicode": "eaf2",
+      "unicode_decimal": 60146
+    },
+    {
+      "icon_id": "11372650",
+      "name": "电话",
+      "font_class": "dianhua",
+      "unicode": "e8ad",
+      "unicode_decimal": 59565
+    },
+    {
+      "icon_id": "11776580",
+      "name": "登录",
+      "font_class": "denglu",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

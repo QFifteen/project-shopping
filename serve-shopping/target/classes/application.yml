@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Project_Shopping?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+  servlet:
+    multipart:
+      enabled: true #是否启用http上传处理
+      max-request-size: 7000MB #最大请求文件的大小
+      max-file-size: 7000MB #设置单个文件最大长度
+      file-size-threshold: 2000MB #当文件达到多少时进行磁盘写入
+
+
+mybatis:
+  mapper-locations: classpath:config/*.xml #  指定xml映射文件,告诉spring
+  type-aliases-package: org.example.entity # 实体类所在的位置
+
+  #pageHelper配置（官网推荐配置）
+  pagehelpr:
+    helperDialect: mysql
+    reasonable: true
+    supporMethodsArguments: true
+    params: count=countSql

@@ -1,0 +1,22 @@
+<template>
+<!-- 订单信息 -->
+<article>
+
+</article>
+</template>
+<style lang="less" scoped>
+@import '../../assets/css/Order.less';
+</style>
+<script>
+import HomeNav from '../../components/'
+export default {
+    data() {
+        return {
+            
+        }
+    },
+    methods: {
+        
+    },
+}
+</script>

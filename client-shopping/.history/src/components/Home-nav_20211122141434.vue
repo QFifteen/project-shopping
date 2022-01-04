@@ -1,0 +1,62 @@
+<template>
+  <div>
+    <nav class="nav">
+      <Row type="flex" align="middle" class="rowstyle">
+        <Col span="2">
+          <img
+            v-lazy="require('../assets/images/logo/logo.svg')"
+            alt=""
+            width="45px"
+            height="45px"
+          />
+        </Col>
+        <Col span="1">服饰</Col>
+        <Col span="1">服饰</Col>
+        <Col span="1">服饰</Col>
+        <Col span="2">最新发售</Col>
+        <Col span="2">最新发售</Col>
+        <Col span="5"></Col>
+        <Col span="4"> <Input search placeholder="Enter something..." /> </Col>
+        <Col span="2"
+          ><span class="iconfont-shopping shop-htmal5icon29"></span
+          >我的购物车</Col
+        >
+        <Col span="2"> <Avatar icon="ios-person" /> user</Col>
+        <Col span="2">退出|注销</Col>
+      </Row>
+    </nav>
+    <!-- 轮播图 -->
+    <section>
+    <Carousel autoplay v-model="value2" loop height="430px">
+        <CarouselItem>
+            <div class="demo-carousel">
+                <img v-lazy="require('../assets/images/banner/DM_20211121194407_001.png')" width="100%"  style="position: relative;"/>
+                </div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel"><img v-lazy="require('../assets/images/banner/DM_20211121194407_001.png')" width="100%"/></div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel"><img v-lazy="require('../assets/images/banner//DM_20211115203516_007.png')" width="100%"/></div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel">4</div>
+        </CarouselItem>
+    </Carousel>
+    </section>
+  </div>
+</template>
+<script>
+export default {
+  name: "home-nav",
+  data() {
+    return {
+      value2: 0,
+    };
+  },
+  methods: {},
+};
+</script>
+<style scoped lang="less">
+@import "../assets/css/Home-nav.less";
+</style>

@@ -1,0 +1,36 @@
+<template>
+  <article>
+    <HomeNav></HomeNav>
+    <banner></banner>
+
+    <article>
+      <Row>
+        <Col span="1"></Col>
+
+        <Col span="22">
+        <div class="center">
+
+        </div>
+        </Col>
+        <Col span="1"> </Col>
+      </Row>
+    </article>
+  </article>
+</template>
+<script>
+import HomeNav from "../components/Home-nav";
+import banner from "../components/banner.vue";
+export default {
+  name: "category",
+  data() {
+    return {};
+  },
+  methods: {},
+  components: {
+    HomeNav,
+    banner,
+  },
+};
+</script>
+<style scoped lang="less">
+</style>

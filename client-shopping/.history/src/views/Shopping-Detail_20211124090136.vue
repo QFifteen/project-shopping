@@ -1,0 +1,60 @@
+<template>
+  <article>
+    <HomeNav></HomeNav>
+
+    <Breadcrumb>
+      <BreadcrumbItem to="/">Home</BreadcrumbItem>
+      <BreadcrumbItem to="/Detail">Detail</BreadcrumbItem>
+    </Breadcrumb>
+    <span class="title">商品详情介绍</span>
+
+    <!-- 正文 -->
+    <article class="shopping-all">
+      <Row>
+        <Col span="1"></Col>
+        <Col span="22">
+        <div class="choose" ref="choose">
+            <div class="content" ref="content" @mousemove="handleMove" @mouseout="handleOut">
+                <img src="../assets/images/fy18e1.jpg" />
+                <div class="shadow" ref="shadow"></div>
+            </div>
+            <ul id="listshow">
+                <li class="selected">
+                    <img src="../assets/images/fy18e1.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="larger" ref="larger">
+            <img src="../assets/images/fy18e1.jpg" ref="big" />
+        </div>
+        </Col>
+        <Col span="1"></Col>
+      </Row>
+    </article>
+
+    <footers></footers>
+  </article>
+</template>
+<style lang="less" scoped>
+@import "../assets/css/Shopping-Detail.less";
+</style>
+
+<script>
+import HomeNav from "../components/Home-nav.vue";
+import footers from "../components/footer.vue";
+import PicZoom from "../components/PicZoom.vue";
+export default {
+  name: "Detail",
+  data() {
+    return {
+        smallImg: '../../static/image/small.jpg',
+        bigImg: '../../static/image/big.jpg'
+    };
+  },
+  components: {
+    HomeNav,
+    footers,
+    PicZoom
+  },
+};
+</script>

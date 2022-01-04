@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "iconfont-shopping"; /* Project id 2946158 */
+  src: url('//at.alicdn.com/t/font_2946158_u7ht9xm9o4i.woff2?t=1637739530656') format('woff2'),
+       url('//at.alicdn.com/t/font_2946158_u7ht9xm9o4i.woff?t=1637739530656') format('woff'),
+       url('//at.alicdn.com/t/font_2946158_u7ht9xm9o4i.ttf?t=1637739530656') format('truetype');
+}
+
+.iconfont-shopping {
+  font-family: "iconfont-shopping" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shop-jieshao:before {
+  content: "\e72f";
+}
+
+.shop-xiajiantou1:before {
+  content: "\e603";
+}
+
+.shop-chicun:before {
+  content: "\e63a";
+}
+
+.shop-xinxi:before {
+  content: "\e649";
+}
+
+.shop-yanse:before {
+  content: "\e678";
+}
+
+.shop-shuliang:before {
+  content: "\e61d";
+}
+
+.shop-xiajiantou:before {
+  content: "\e6cc";
+}
+
+.shop-xiangshangjiantou:before {
+  content: "\e65d";
+}
+
+.shop-zhekou:before {
+  content: "\e653";
+}
+
+.shop-jiage:before {
+  content: "\e652";
+}
+
+.shop-youjiantou:before {
+  content: "\e632";
+}
+
+.shop-shangjia:before {
+  content: "\e663";
+}
+
+.shop-paixu:before {
+  content: "\e618";
+}
+
+.shop-pinglun:before {
+  content: "\e601";
+}
+
+.shop-shangpinxiaoliangpaihang:before {
+  content: "\e639";
+}
+
+.shop-htmal5icon29:before {
+  content: "\e641";
+}
+
+.shop-shouji:before {
+  content: "\e600";
+}
+
+.shop-win:before {
+  content: "\e631";
+}
+
+.shop-win1:before {
+  content: "\e666";
+}
+
+.shop-xiaochengxu:before {
+  content: "\e636";
+}
+
+.shop-lejiexiangqingicon:before {
+  content: "\e602";
+}
+
+.shop-mima:before {
+  content: "\e620";
+}
+
+.shop-xingbie:before {
+  content: "\e7f8";
+}
+
+.shop-zhucetianjiahaoyou:before {
+  content: "\e8ca";
+}
+
+.shop-youxiang:before {
+  content: "\e908";
+}
+
+.shop-zhanghaodenglu:before {
+  content: "\e70d";
+}
+
+.shop-daohang:before {
+  content: "\eaf2";
+}
+
+.shop-dianhua:before {
+  content: "\e8ad";
+}
+
+.shop-denglu:before {
+  content: "\e611";
+}

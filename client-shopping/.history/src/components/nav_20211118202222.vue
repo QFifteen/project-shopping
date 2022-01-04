@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <Row type="flex">
+      <Col span="16">
+      <img v-lazy="require('../assets/images/logo/logo.svg')" alt="">
+      </Col>
+      <Col span="2">
+      <p>品牌介绍</p>
+      </Col>
+            <Col span="2">
+      <p>时尚追寻</p>
+      </Col>
+            <Col span="2">
+      <p>关于我们</p>
+      </Col>
+            <Col span="2">
+      <p>品牌介绍</p>
+      </Col>
+    </Row>
+  </div>
+</template>

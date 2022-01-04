@@ -1,0 +1,46 @@
+.shopping-list{
+    .Main-Head(18px);
+    margin-top:20px;
+
+}
+.inp{
+    width: 600px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.search{
+    width: 50%;            
+    display: flex;
+    /*border: 1px solid red;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.search input{
+    float: left;//左浮动
+    flex: 4;
+    height: 45px;
+    outline: none;
+    border: 1px solid @font-color1;
+    box-sizing: border-box;//盒子模型，怪异IE盒子模型，width=content+border*2+padding*2
+    padding-left: 10px;
+}
+.search button{
+    float: right;
+    flex: 1;
+    height: 45px;
+    background-color: @font-color1;
+    .Main-Head(16px);
+    border-style: none;
+    outline: none;
+    
+}
+.search button i{
+    font-style: normal;
+}
+.search button:hover{
+    cursor:pointer;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(0,0,0,0.3);
+}

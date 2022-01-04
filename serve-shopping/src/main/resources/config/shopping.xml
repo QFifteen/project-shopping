@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.Mapper.ShoppingDAO">
+
+    <resultMap id="myUser" type="org.example.entity.User">
+        <id property="User_id" column="User_id"></id>
+        <result property="User_name" column="User_name"></result>
+        <result property="User_gender" column="User_gender"></result>
+        <result property="User_email" column="User_email"></result>
+        <result property="User_pass" column="User_pass"></result>
+        <result property="User_intro" column="User_intro"></result>
+        <result property="User_telephone" column="User_telephone"></result>
+        <result property="User_img" column="User_img"></result>
+        <result property="User_status" column="User_status"></result>
+        <result property="User_address" column="User_address"></result>
+    </resultMap>
+    <!--    用户显示-->
+    <select id="Usershow" resultType="org.example.entity.User">
+        SELECT * FROM User
+    </select>
+    <!--    用户登录-->
+    <select id="Userlogin" resultMap="myUser">
+        select *
+        from User
+        where User_name = #{User_name}
+          and User_pass = #{User_pass};
+    </select>
+    <!--    用户注册-->
+    <insert id="UserAdd" parameterType="User">
+        insert into User (User_name, User_gender, User_email, User_pass,User_img)
+        values (#{User_name}, #{User_gender}, #{User_email}, #{User_pass},#{User_img});
+    </insert>
+    <!--    用户修改-->
+    <update id="UserUP" parameterType="User">
+        update User
+        set User_name=#{User_name},
+            User_gender=#{User_gender},
+            User_email=#{User_email},
+            User_pass=#{User_pass},
+            User_intro=#{User_intro},
+            User_telephone=#{User_telephone},
+            User_img=#{User_img},
+            User_status=#{User_status},
+            User_address=#{User_address}
+        where User_id = #{User_id};
+    </update>
+    <!--    用户删除-->
+    <delete id="UserDel">
+        delete
+        from User
+        where User_id = #{User_id};
+    </delete>
+<!--    批量删除-->
+    <delete id="UserDelList">
+        delete from User where User_id in
+        <foreach item="User_id" collection="User_id" open="(" close=")" separator="," >
+            #{User_id}
+        </foreach>
+    </delete>
+    <resultMap id="myadmin" type="org.example.entity.administrator">
+        <id property="Administrator_id" column="Administrator_id"></id>
+        <result property="Administrator_name" column="Administrator_name"></result>
+        <result property="Administrator_pass" column="Administrator_pass"></result>
+        <result property="Administrator_img" column="Administrator_img"></result>
+        <result property="Administrator_grade" column="Administrator_grade"></result>
+    </resultMap>
+    <!--    管理员登录-->
+    <select id="adminlogin" resultType="org.example.entity.administrator">
+        select * from administrator
+        where Administrator_name = #{Administrator_name}
+          and Administrator_pass = #{Administrator_pass};
+    </select>
+
+    <select id="adminshow" resultType="org.example.entity.administrator">
+        select * from administrator
+    </select>
+
+    <select id="shoppingshow" resultType="org.example.entity.commodity">
+        select * from commodity
+    </select>
+</mapper>

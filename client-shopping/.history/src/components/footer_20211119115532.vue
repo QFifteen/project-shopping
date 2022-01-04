@@ -1,0 +1,23 @@
+<template>
+    <footer class="footer">
+        <div>
+            <Row type="flex" align="middle" justify="center">
+            <Col span="6">
+                <ul>
+                    <li class="ul">热门推荐</li>
+                    <li>x</li>
+                    <li>x</li>
+                    <li>x</li>
+                </ul>
+            </Col>
+            <Col span="6"></Col>
+            <Col span="6"></Col>
+            <Col span="6"></Col>
+        </Row>
+        </div>
+
+    </footer>
+</template>
+<style scoped lang="less">
+@import '../assets/css/footer.less';
+</style>

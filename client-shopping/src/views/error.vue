@@ -1,0 +1,29 @@
+<template>
+  <article>
+    <HomeNav></HomeNav>
+    <footers></footers>
+  </article>
+</template>
+<style scoped lang="less">
+@import "../assets/css/error.less";
+</style>
+
+<script>
+import HomeNav from "../components/Home-nav.vue";
+import footers from "../components/footer.vue";
+
+export default{
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+
+  },
+  components: {
+    HomeNav,
+    footers
+  }
+}
+</script>
