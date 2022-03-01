@@ -4,8 +4,8 @@ import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.example.entity.User;
 import org.example.entity.administrator;
-import org.example.entity.commodity;
-import org.springframework.stereotype.Service;
+import org.example.entity.commodity_whole;
+import org.example.entity.commodityimgurl;
 
 import java.util.List;
 
@@ -32,4 +32,31 @@ public interface ShoppingService {
 
     //商品显示
     public PageInfo shoppingshow(int a,int b);
+
+    //根据商品显示
+    public commodity_whole shoppingID(@Param("Commodity_id")Integer Commodity_id);
+
+    //根据商品id查询list图片
+    public List<commodityimgurl> shoppingimgID(@Param("Commodity_id")Integer Commodity_id);
+
+    //商品id删除
+    public boolean shoppingDel(@Param("Commodity_id")Integer Commodity_id);
+
+    //商品修改
+    public boolean shoppingUP(commodity_whole commodity_whole);
+
+    //商品图片添加
+    public boolean shoppingImgUP(@Param("Commodity_img")String Commodity_img, @Param("Commodity_id")Integer Commodity_id);
+
+    //商品数据添加
+    public boolean shoppingDataAdd(commodity_whole commodity_whole);
+
+    //查商品MAX_id
+    public List<commodity_whole> shoppingMaxID();
+
+    //商品批量删除
+    boolean shoppingDelList(@Param("Commodity_id") List<Integer> idList);
+
+    //商品图片批量删除
+    boolean shoppingDelImgList(@Param("Commodity_id") List<Integer> idList);
 }

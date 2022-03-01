@@ -12,7 +12,7 @@
           <Input v-model="formItem.input" placeholder="Enter something..." style="width:200px;"></Input>
         </FormItem>
         <FormItem>
-          <Button type="primary" icon="ios-search">搜索</Button>
+          <Button type="primary"><i class="iconfont-shopping shop-sousuo"  @click="refresh" style="font-size:12px;padding-right:5px;"></i>搜索</Button>
         </FormItem>
       </Form>
     </Card>
@@ -199,7 +199,6 @@ export default {
       this.formValidate = this.data1[index];
     },
     remove(index) {
-      // console.log(this.data1[index].user_id);
       this.DelID = true;
       this.DelIDdata = this.data1[index].user_id;
     },

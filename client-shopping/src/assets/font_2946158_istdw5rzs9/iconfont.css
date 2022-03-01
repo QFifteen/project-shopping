@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont-shopping"; /* Project id 2946158 */
-  src: url('//at.alicdn.com/t/font_2946158_sp2v05v59p.woff2?t=1639377575250') format('woff2'),
-  url('//at.alicdn.com/t/font_2946158_sp2v05v59p.woff?t=1639377575250') format('woff'),
-  url('//at.alicdn.com/t/font_2946158_sp2v05v59p.ttf?t=1639377575250') format('truetype');
+  src: url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.woff2?t=1641900824598') format('woff2'),
+  url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.woff?t=1641900824598') format('woff'),
+  url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.ttf?t=1641900824598') format('truetype');
 }
 
 .iconfont-shopping {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.shop-wangdianzhanghaozhongzhimima:before {
+  content: "\e63f";
+}
+
+.shop-biaoge:before {
+  content: "\e63e";
+}
+
+.shop-sousuo:before {
+  content: "\e62f";
+}
+
+.shop-midufenxi:before {
+  content: "\edc2";
+}
+
+.shop-jiahao:before {
+  content: "\eaf3";
 }
 
 .shop-youjiantou-tianchong:before {

@@ -1,12 +1,17 @@
 server:
   port: 8082
 
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/Project_Shopping?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/Project_Shopping?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+  jackson:
+    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm
+
 
 
   servlet:

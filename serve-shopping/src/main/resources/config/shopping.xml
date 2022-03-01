@@ -77,7 +77,77 @@
         select * from administrator
     </select>
 
-    <select id="shoppingshow" resultType="org.example.entity.commodity">
-        select * from commodity
+    <select id="shoppingshow" resultType="org.example.entity.commodity_whole">
+        select *,
+               (select commodityimgurl.Commodity_img from commodityimgurl where commodityimgurl.Commodity_id=sp.Commodity_imgid limit 0,1) as Commodity_img
+        from commodity as sp
     </select>
+
+    <select id="shoppingID" resultType="org.example.entity.commodity_whole">
+        select * from commodity where Commodity_id = #{Commodity_id};
+    </select>
+
+    <select id="shoppingimgID" resultType="org.example.entity.commodityimgurl">
+        select Commodityimgurl_id,Commodity_img,Commodityimgurl_time,Commodity_id from commodityimgurl where Commodity_id = #{Commodity_id};
+    </select>
+
+    <delete id="shoppingDel">
+        delete
+        from commodity
+        where Commodity_id = #{Commodity_id};
+    </delete>
+
+    <update id="shoppingUP" parameterType="commodity_whole">
+        update commodity
+        set Commodity_name=#{Commodity_name},
+            Commodity_text=#{Commodity_text},
+            Commodity_cost=#{Commodity_cost},
+            Commodity_price=#{Commodity_price},
+            Commodity_sell=#{Commodity_sell},
+            Commodity_state=#{Commodity_state},
+            Classification_name=#{Classification_name},
+            Classification_subdivision=#{Classification_subdivision},
+            Classification_category=#{Classification_category}
+        where Commodity_id = #{Commodity_id};
+    </update>
+
+    <!--    商品图片添加-->
+    <insert id="shoppingImgUP" parameterType="commodityimgurl">
+        insert into commodityimgurl(Commodity_id, Commodity_img) values (#{Commodity_id},#{Commodity_img});
+    </insert>
+
+    <insert id="shoppingDataAdd" parameterType="org.example.entity.commodity_whole">
+
+        insert into commodity(Commodity_name, Commodity_text, Commodity_imgid, Commodity_cost, Commodity_price, Commodity_state, Classification_name, Classification_subdivision, Classification_category)
+        values (#{Commodity_name},
+            #{Commodity_text},
+            #{Commodity_imgid},
+            #{Commodity_cost},
+            #{Commodity_price},
+            #{Commodity_state},
+            #{Classification_name},
+            #{Classification_subdivision},
+            #{Classification_category})
+    </insert>
+
+    <select id="shoppingMaxID" resultType="org.example.entity.commodity_whole">
+        select * from commodity order by Commodity_id desc  ;
+--         Max(Commodity_id)+1
+    </select>
+
+    <!--    批量删除-->
+    <delete id="shoppingDelList">
+        delete from commodity where Commodity_id in
+        <foreach item="Commodity_id" collection="Commodity_id" open="(" close=")" separator="," >
+            #{Commodity_id}
+        </foreach>
+    </delete>
+
+    <delete id="shoppingDelImgList">
+        delete from commodityimgurl where Commodity_id in
+        <foreach item="Commodity_id" collection="Commodity_id" open="(" close=")" separator="," >
+            #{Commodity_id}
+        </foreach>
+    </delete>
+
 </mapper>

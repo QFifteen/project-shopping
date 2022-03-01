@@ -34,8 +34,6 @@ const project = () => import('../components/admin/project_information');
 const about = () => import('../components/admin/about');
 const admin_error = () => import('../components/admin/admin_error');
 
-
-
 const routes = [
     {
         //登录

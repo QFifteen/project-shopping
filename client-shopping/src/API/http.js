@@ -26,6 +26,19 @@ export function POST(url, params) {
     });
 }
 
+
+export function PostFile(url, params) {
+    return new Promise((resolve, reject) => {
+        axios.post(url,params)
+            .then(response => {
+                resolve(response);
+            })
+            .catch(err => {
+                reject(err)
+            })
+    });
+}
+
 export function PUT(url, params) {
     return new Promise((resolve, reject) => {
         axios.put(url,qs.stringify(params))

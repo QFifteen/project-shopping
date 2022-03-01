@@ -5,12 +5,16 @@ import com.github.pagehelper.PageInfo;
 import org.example.Mapper.ShoppingDAO;
 import org.example.entity.User;
 import org.example.entity.administrator;
-import org.example.entity.commodity;
+import org.example.entity.commodity_whole;
+import org.example.entity.commodityimgurl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
+//业务逻辑
 @Service
 public class ShoppingImp implements ShoppingService{
     @Autowired
@@ -67,8 +71,54 @@ public class ShoppingImp implements ShoppingService{
     @Override
     public PageInfo shoppingshow(int pageNum,int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
-        List<commodity> list = shoppingDAO.shoppingshow();
+        List<commodity_whole> list = shoppingDAO.shoppingshow();
         PageInfo page = new PageInfo(list);
         return page;
+    }
+
+    @Override
+    public commodity_whole shoppingID(Integer Commodity_id) {
+        return shoppingDAO.shoppingID(Commodity_id);
+    }
+
+    @Override
+    public List<commodityimgurl> shoppingimgID(Integer Commodity_id) {
+        return shoppingDAO.shoppingimgID(Commodity_id);
+    }
+
+    @Override
+    public boolean shoppingDel(Integer Commodity_id) {
+        return shoppingDAO.shoppingDel(Commodity_id);
+    }
+
+    @Override
+    public boolean shoppingUP(commodity_whole commodity_whole) {
+        return shoppingDAO.shoppingUP(commodity_whole);
+    }
+
+    @Override
+    public boolean shoppingImgUP(String Commodity_img, Integer Commodity_id) {
+        return shoppingDAO.shoppingImgUP(Commodity_img,Commodity_id);
+    }
+
+    @Override
+    public boolean shoppingDataAdd(commodity_whole commodity_whole) {
+        return shoppingDAO.shoppingDataAdd(commodity_whole);
+    }
+
+    @Override
+    public List<commodity_whole> shoppingMaxID() {
+        return shoppingDAO.shoppingMaxID();
+    }
+
+
+    @Override
+    public boolean shoppingDelList(List<Integer> idList) {
+        return shoppingDAO.shoppingDelList(idList);
+    }
+
+    @Override
+    public boolean shoppingDelImgList(List<Integer> idList) {
+        return shoppingDAO.shoppingDelImgList(idList);
     }
 }

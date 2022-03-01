@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {shoppingMaxID} from "../API/api";
 
 Vue.use(Vuex)
 
@@ -49,8 +50,21 @@ export default new Vuex.Store({
         reg: new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"),
         //密码正则:全由数字组成,由6-15个数字组成
         patrn_pass : /^[0-9]{5,14}$/,
+        imgurl_prefix:"http://172.16.254.1:8081/",
+        //商品图片地址
+        shoppingimgurl_prefix:"http://172.16.254.1:8081/imgList/",
+        shoppingData:shoppingMaxID().then((res)=>{return res}),
+        //时间转换
+        transformTimestamp(timestamp){
+            let data = timestamp.substr(0, 19);
+            let newDate = new Date(new Date(data.replace(/T/g, ' ').replace(/-/g, '/')).getTime() + 8 * 60 * 60 * 1000);
+            let d = new Date(newDate);
+            // return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+            return d
+        },
     },
-    mutations: {},
+    mutations: {
+    },
     actions: {},
     modules: {}
 })

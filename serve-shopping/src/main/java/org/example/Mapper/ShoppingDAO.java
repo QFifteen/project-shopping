@@ -4,7 +4,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.example.entity.User;
 import org.example.entity.administrator;
-import org.example.entity.commodity;
+import org.example.entity.commodity_whole;
+import org.example.entity.commodityimgurl;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -37,7 +38,33 @@ public interface ShoppingDAO {
     public List<administrator> adminshow();
 
     //商品显示
-    public List<commodity> shoppingshow();
+    public List<commodity_whole> shoppingshow();
 
+    //根据商品id显示
+    public commodity_whole shoppingID(@Param("Commodity_id")Integer Commodity_id);
+
+    //根据商品id查询list图片
+    public List<commodityimgurl> shoppingimgID(@Param("Commodity_id")Integer Commodity_id);
+
+    //商品id删除
+    public boolean shoppingDel(@Param("Commodity_id")Integer Commodity_id);
+
+    //商品修改
+    public boolean shoppingUP(commodity_whole commodity_whole);
+
+    //商品图片添加
+    public boolean shoppingImgUP(@Param("Commodity_img")String Commodity_img, @Param("Commodity_id")Integer Commodity_id);
+
+    //商品数据添加
+    public boolean shoppingDataAdd(commodity_whole commodity_whole);
+
+    //查商品MAX_id
+    public List<commodity_whole> shoppingMaxID();
+
+    //商品批量删除
+    boolean shoppingDelList(@Param("Commodity_id") List<Integer> idList);
+
+    //商品图片批量删除
+    boolean shoppingDelImgList(@Param("Commodity_id") List<Integer> idList);
 
 }
