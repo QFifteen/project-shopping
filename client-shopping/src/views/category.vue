@@ -4,6 +4,7 @@
     <banner></banner>
 
     <article>
+
       <Row>
         <Col span="1"></Col>
 
@@ -13,6 +14,28 @@
               <span>多样选择，让服饰多样化</span>
             </div>
             <div class="category">
+<!--              男女分类-->
+              <Row style="margin-bottom:50px;">
+                <Col span="11" style="margin-left:25px;">
+                  <img
+                      v-lazy="require('../assets/images/nan.jpg')"
+                      alt=""
+                      width="100%"
+                      class="gender_img"
+                  />
+                  <p class="gender_nan">男装</p>
+                </Col>
+                <Col push="1" span="11">
+                  <img
+                      v-lazy="require('../assets/images/nv.jpg')"
+                      alt=""
+                      width="100%"
+                      class="gender_img"
+                  />
+                  <p class="gender_nan">女装</p>
+                </Col>
+              </Row>
+<!--              详细分类-->
               <Row>
                 <Col span="7" class="Col-left">
                   <img
@@ -21,7 +44,7 @@
                     width="100%"
                     class="imgl"
                   />
-                  <div class="img-title1"><p>服饰</p></div>
+                  <div class="img-title1"><p>衣服</p></div>
                 </Col>
                 <Col span="7" push="1" class="Col-left">
                   <div>

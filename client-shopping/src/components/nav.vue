@@ -37,9 +37,10 @@
                   <Row>
                     <Col span="8"
                     ><img
-                        v-lazy="require('../assets/images/login/loginimg.png')"
+                        v-lazy="require('../assets/images/login/loginimg.jpg')"
                         alt=""
                         width="100%"
+                        style="margin-top:20px;"
                     /></Col>
                     <Col span="15" push="1">
                       <Tabs v-model="tabname.name">
@@ -181,10 +182,14 @@
           </Col
           >
           <Col span="10">
+            <img  v-lazy="require('../assets/images/login/Cover2.jpeg')" alt="" style="position:absolute; transform: rotate(10deg);bottom: 20px;left:20px;border-radius: 10px;opacity: .9;
+" width="30%">
+            <img  v-lazy="require('../assets/images/login/img.png')" alt="" style="position:absolute; transform: rotate(-5deg);right:110px;top:20px;border-radius: 10px;opacity: .6;
+" width="30%">
             <img
                 v-lazy="require('../assets/images/login/Cover.jpeg')"
                 alt=""
-                width="70%"
+                width="66%"
                 style="margin-left: 50px;"
             />
             <div class="img_text">
@@ -390,9 +395,9 @@ export default {
             this.$Message.error('账户或密码错误，请重新输入');
           } else {
             this.$Message.success("登录成功，将在2秒后跳转到主页面");
-            // setTimeout(() => {
-            //   this.$router.push({path: '/diversity'});
-            // }, 2000);
+            setTimeout(() => {
+              this.$router.push({path: '/diversity'});
+            }, 2000);
             // console.log(res.data);
             this.$store.state.Userinformation.user_id = localStorage["user_id"] = res.data.user_id;//id
             this.$store.state.Userinformation.user_name = localStorage["user_name"] = res.data.user_name;//名称

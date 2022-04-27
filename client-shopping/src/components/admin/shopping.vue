@@ -15,7 +15,8 @@
                                                style="font-size:12px;padding-right:5px;"></i>重置
           </Button>
           <Button type="primary" style="margin-left: 40px" @click="ShoppingAdd"><i class="iconfont-shopping shop-jiahao"
-                                                                                   style="font-size:12px;padding-right:5px;" @click="ShoppingAdd"></i>添加数据
+                                                                                   style="font-size:12px;padding-right:5px;"
+                                                                                   @click="ShoppingAdd"></i>添加数据
           </Button>
         </FormItem>
       </Form>
@@ -30,7 +31,7 @@
         width="650px"
         ok-text="确认添加"
         @on-ok="Shoppingtext_Add"
-        :loading = "loadingform"
+        :loading="loadingform"
     >
       <Form>
         <Row :gutter="32">
@@ -42,7 +43,8 @@
           </Col>
           <Col span="10">
             <FormItem label="商品编号:" label-position="top">
-              <Input v-model="formAddData.commodity_id" placeholder="please enter user name" style="width:100px" :disabled="true"/>
+              <Input v-model="formAddData.commodity_id" placeholder="please enter user name" style="width:100px"
+                     :disabled="true"/>
             </FormItem>
           </Col>
         </Row>
@@ -153,7 +155,7 @@
             :on-exceeded-size="handleMaxSize"
             :before-upload="handleBeforeUpload"
             :on-progress="handleProgress"
-            :multiple = "true"
+            :multiple="true"
             type="drag"
             action="http://localhost:8082/shippingImgUP2"
             style="display: inline-block;width:100px;">
@@ -173,6 +175,7 @@
         :columns1="columns1"
         :data1="data1"
         :show="show"
+        :show2="show2"
         :on-select-all="onSelectAll"
         :remove="remove"
         :onSelectchange="onSelectchange"
@@ -198,6 +201,7 @@
               <Input v-model="formData.commodity_name" placeholder="please enter url">
               </Input>
             </FormItem>
+            5
           </Col>
           <Col span="12">
             <FormItem label="商品编号:" label-position="top">
@@ -317,6 +321,82 @@
         @on-ok="Delconfirm">
       <p>您确认要删除ID为<span>{{ dellist }}</span>的数据吗</p>
     </Modal>
+
+    <!--    商品规格参数抽屉-->
+    <Drawer title="产品规格参数" placement="bottom" :closable="false" v-model="shopping_Drawer" height="55">
+      <CheckboxGroup v-model="social" @on-change="Check_change">
+
+        <p class="Drawer_shoppingtext">商品信息:</p>
+        <Row>
+          <Col span="6" push="2">
+            商品编号: <span>{{Specification.id}}</span>
+          </Col>
+          <Col span="6">
+            商品名称: <span>{{Specification.name}}</span>
+          </Col>
+          <Col span="6">
+            商品类别:
+            <Select style="width:200px" :disabled="true" value="sp">
+              <Option value="sp">{{ Specification.classification_name }}</Option>
+            </Select>
+          </Col>
+        </Row>
+        <Divider/>
+        <p class="Drawer_shoppingtext">规格参数:</p>
+        <Row>
+          <Col span="2" style="text-align:center;">颜色:</Col>
+          <Col span="3">
+            <Checkbox label="碧涛青">
+              <Tag color="#14C9C9">碧涛青</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <Checkbox label="晚秋红">
+              <Tag color="#F77234">晚秋红</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <Checkbox label="活力橙">
+              <Tag color="#FF7D00">活力橙</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <Checkbox label="极致蓝">
+              <Tag color="#165DFF">极致蓝</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <Checkbox label="中性灰">
+              <Tag color="#86909c">中性灰</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <Checkbox label="深沉黑">
+              <Tag color="#17233d">深沉黑</Tag>
+            </Checkbox>
+          </Col>
+          <Col span="3" >
+            <a href="">+添加自定义项</a>
+          </Col>
+        </Row>
+        <Row style="margin-top:20px;">
+          <Col span="2" style="text-align:center;">尺码:</Col>
+          <Col span="6" >
+            <Select   style="width:260px">
+              <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </Col>
+          <Col span="2" style="text-align:center;">存货:</Col>
+          <Col span="6" >
+            <InputNumber  controls-outside></InputNumber>
+          </Col>
+        </Row>
+      </CheckboxGroup>
+      <div class="demo-drawer-footer">
+        <Button  style="margin-right: 8px" @click="shopping_Drawer = false">Cancel</Button>
+        <Button type="primary" @click="shopping_Drawerfun">Submit</Button>
+      </div>
+    </Drawer>
     <!--    a2[a2.length] = {imgurl:'http://172.16.254.1:8081/images/shopping/DM_20211115203737_001.png'};-->
   </div>
 </template>
@@ -370,6 +450,11 @@ export default {
           title: '商品图片',
           slot: 'shopping_img',
           width: 150,
+        },
+        {
+          title: '规格设置',
+          slot: 'shopping_butt',
+          width: 120,
         },
         {
           title: '商品成本',
@@ -446,15 +531,47 @@ export default {
       arr: [],
       arr2: [],
       imgfileIF: false,
-      loadingform:true,
+      loadingform: true,
       time: new Date(),
-      idadd:0,
+      idadd: 0,
       imgListAdd: [],
-      shoppingDelListID:[],
-      dellistID:false,
-      dellist:[],
-      iddd:0,
-
+      shoppingDelListID: [],
+      dellistID: false,
+      dellist: [],
+      iddd: 0,
+      shopping_Drawer: false,
+      social: [],
+      cityList: [
+        {
+          value: 'S',
+          label: 'S'
+        },
+        {
+          value: 'M',
+          label: 'M'
+        },
+        {
+          value: 'L',
+          label: 'L'
+        },
+        {
+          value: 'XL',
+          label: 'XL'
+        },
+        {
+          value: 'XXL',
+          label: 'XXL'
+        },
+        {
+          value: 'XXXL',
+          label: 'XXXL'
+        },
+        {
+          value: 'XXXXL',
+          label: 'XXXXL'
+        },
+      ],
+      Specification:{},
     }
   },
   created() {
@@ -499,6 +616,19 @@ export default {
       })
 
     },
+    show2(index) {
+      // console.log(this.data1[index]);
+      this.Specification.id = this.data1[index].commodity_id;
+      this.Specification.name = this.data1[index].commodity_name;
+      this.Specification.classification_name = this.data1[index].classification_name;
+      this.shopping_Drawer = true;
+    },
+    Check_change(){
+      console.log(this.social);
+    },
+    shopping_Drawerfun(){
+      console.log("xa");
+    },
     //删除
     remove(index) {
       this.$Modal.confirm({
@@ -538,9 +668,9 @@ export default {
       this.dellist = arr;
     },
     //商品批量删除
-    Delconfirm(){
-      shoppingDelList({Commodity_id: this.dellist}).then(()=>{
-        shoppingDelImgList({Commodity_id: this.dellist}).then(res=>{
+    Delconfirm() {
+      shoppingDelList({Commodity_id: this.dellist}).then(() => {
+        shoppingDelImgList({Commodity_id: this.dellist}).then(res => {
           if (res == true) {
             this.$Message.success({content: "删除成功", background: true});
             this.shoppinglist();
@@ -607,17 +737,17 @@ export default {
     },
     ShoppingAdd() {
       console.log("xxx")
-      this.formAddData ={};
-      this.$store.state.shoppingData.then(res=>{
-        this.formAddData.commodity_id = res[0].commodity_id+1;
-        this.iddd = res[0].commodity_id+1;
+      this.formAddData = {};
+      this.$store.state.shoppingData.then(res => {
+        this.formAddData.commodity_id = res[0].commodity_id + 1;
+        this.iddd = res[0].commodity_id + 1;
         // console.log(this.formAddData.commodity_id);
       });
       this.modalform = true;
     },
     //商品添加
-    ShoppingAddfun() {
-      let Formdata = new FormData();
+    ShoppingAddfun() {      let Formdata = new FormData();
+
       Formdata.append("Commodity_name", this.formAddData.commodity_name);
       Formdata.append("Commodity_text", this.formAddData.commodity_text);
       Formdata.append("Commodity_imgid", this.iddd);
@@ -630,32 +760,32 @@ export default {
 
       shoppingDataadd(Formdata).then(res => {
         // console.log(res);
-        if(res.status === 200){
+        if (res.status === 200) {
           setTimeout(() => {
             this.$Notice.success({
               title: '添加成功',
-              desc:"成功添加商品信息，可通过表格预览其添加的商品信息",
-              duration:3
+              desc: "成功添加商品信息，可通过表格预览其添加的商品信息",
+              duration: 3
             });
             this.loadingform = true;
             this.modalform = false;
             console.log(res);
           }, 2500);
-        }else if(res.status != 200){
+        } else if (res.status != 200) {
           setTimeout(() => {
             this.$Notice.error({
               title: '添加失败',
-              desc:"添加商品信息发生错误，请检查您输入的信息",
-              duration:3
+              desc: "添加商品信息发生错误，请检查您输入的信息",
+              duration: 3
             });
             this.loadingform = true;
           }, 2500);
         }
       }).catch(error => {
         this.$Notice.warning({
-          title: '发生未知错误'+error,
-          desc:"发生了未知错误，请稍后再试!",
-          duration:3
+          title: '发生未知错误' + error,
+          desc: "发生了未知错误，请稍后再试!",
+          duration: 3
         });
 
         this.loadingform = true;
@@ -663,12 +793,12 @@ export default {
     },
 
     //多图片添加
-    ShoppingAddfunImg(){
-      for(let i=0;i < this.imgListAdd.length;i++){
+    ShoppingAddfunImg() {
+      for (let i = 0; i < this.imgListAdd.length; i++) {
         let Formdata = new FormData();
         Formdata.append("Commodity_id", this.formAddData.commodity_id);
         Formdata.append("Commodity_img", this.imgListAdd[i]);
-        shippingImgUP(Formdata).then(res=>{
+        shippingImgUP(Formdata).then(res => {
           console.log(res);
         })
       }
@@ -712,20 +842,19 @@ export default {
       Formdata.append("Classification_category", this.formData.classification_category);
       shoppingUP(Formdata).then(res => {
         // console.log(this.formData.commodity_img != null);
-        if(res.status === 200 ){
+        if (res.status === 200) {
           this.$Message.success({content: "修改成功", background: true});
           this.value3 = false;
-        }else{
+        } else {
           this.$Message.error({content: "修改失败", background: true});
         }
-        if(this.formData.commodity_img != null){
+        if (this.formData.commodity_img != null) {
           let Formdata2 = new FormData();
           Formdata2.append("Commodity_img", this.formData.commodity_img);
           Formdata2.append("Commodity_id", this.formData.commodity_id);
-          shippingImgUP(Formdata2).then(()=>{
+          shippingImgUP(Formdata2).then(() => {
             // console.log("xx");
             this.tp = "";
-
           });
         }
       })

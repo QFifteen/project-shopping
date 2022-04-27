@@ -86,6 +86,25 @@
                   </p>
                 </div>
               </div>
+
+              <div class="box-list">
+                <img
+                    v-lazy="
+                      require('../assets/images/shopping/DM_20211115203702_017.png')
+                    "
+                    alt=""
+                    width="100%"
+                />
+                <div class="shopping-text">
+                  <p>嘉筱加绒连帽卫衣</p>
+                  <p>
+                    男学生港风潮流字母印花长袖衣服男 白色加绒 XL 120斤-140斤
+                  </p>
+                  <p>
+                    <span class="iconfont-shopping shop-jiage"></span>99.00
+                  </p>
+                </div>
+              </div>
               <div class="box-list">
                 <img
                     v-lazy="

@@ -6,6 +6,7 @@ import org.example.entity.User;
 import org.example.entity.administrator;
 import org.example.entity.commodity_whole;
 import org.example.entity.commodityimgurl;
+import org.example.entity.json;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -66,5 +67,8 @@ public interface ShoppingDAO {
 
     //商品图片批量删除
     boolean shoppingDelImgList(@Param("Commodity_id") List<Integer> idList);
+
+    //json
+    List<json> jsonshow();
 
 }

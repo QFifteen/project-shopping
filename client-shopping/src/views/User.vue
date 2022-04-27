@@ -11,23 +11,23 @@
             <!-- 筛选 -->
               <div class="Userimg">
                 <img
-                  v-lazy="require('../assets/images/logo/shiwu.jpg')"
+                  v-lazy="User_textList.img"
                   alt=""
                 />
-                <p>十五</p>
+                <p>{{ User_textList.name }}</p>
               </div>
-              <Menu theme='light' active-name="1">
+              <Menu theme='light' :active-name="router_text" style="z-index:1;">
                 <MenuGroup title="信息管理">
-                  <MenuItem name="1" to="/User/UserInformation">
+                  <MenuItem name="/User/UserInformation" to="/User/UserInformation">
                   <!-- @click="$router.push({path:'/cinema_details'})" -->
                   <icon class="iconfont-shopping shop-zhanghu"   />
                     个人信息
                   </MenuItem>
-                  <MenuItem name="2" to="/User/Order">
+                  <MenuItem name="/User/Order" to="/User/Order">
                     <Icon class="iconfont-shopping shop-dingdan" />
                     订单信息
                   </MenuItem>
-                    <MenuItem name="3">
+                    <MenuItem name="/User/User_history" to="/User/User_history">
                     <Icon class="iconfont-shopping shop-lishijilu" />
                     历史记录
                   </MenuItem>
@@ -83,9 +83,27 @@ import HomeNav from "../components/Home-nav.vue";
 import footers from "../components/footer.vue";
 export default {
   data() {
-    return {};
+    return {
+      router_text:"/User/UserInformation",
+      User_textList:{}
+    };
   },
-  methods: {},
+  methods: {
+    Usershow(){
+      this.User_textList.img = localStorage["user_img"];
+      this.User_textList.name = localStorage["user_name"];
+    },
+    routerUP(){
+      this.router_text = this.$route.path;
+    },
+
+  },
+  created() {
+    this.Usershow();
+  },
+  watch:{
+    '$route':'routerUP'
+},
   components: {
     HomeNav,
     footers,

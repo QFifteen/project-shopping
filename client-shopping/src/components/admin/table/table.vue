@@ -37,6 +37,10 @@
         <template slot="shopping_img" slot-scope="{ row }">
           <img v-lazy="row.commodity_img" alt="" width="40%" style="margin-top: 5px">
         </template>
+        <!--        商品规格-->
+        <template slot-scope="{ index }" slot="shopping_butt">
+          <Button type="primary" size="small" style="margin-right: 5px" @click="show2(index)">规格参数</Button>
+        </template>
         <!--        轮播图-->
         <template slot="bannerimg" slot-scope="{ row }">
           <img v-lazy="row.bannerimg" alt="" width="100%" style="margin-top: 10px">
@@ -64,7 +68,7 @@
 <script>
 
 export default {
-  props: ['columns1', 'data1', 'onSelectAll', 'show', 'remove', 'onSelectchange', 'rem', 'refresh', 'loading', 'pageshow', 'page'],
+  props: ['columns1', 'data1', 'onSelectAll', 'show', 'remove', 'onSelectchange', 'rem', 'refresh', 'loading', 'pageshow', 'page','show2'],
   data() {
     return {
     }

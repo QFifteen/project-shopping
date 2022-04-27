@@ -3,10 +3,7 @@ package org.example.Controller;
 
 import com.github.pagehelper.PageInfo;
 import org.example.Service.ShoppingService;
-import org.example.entity.User;
-import org.example.entity.administrator;
-import org.example.entity.commodity_whole;
-import org.example.entity.commodityimgurl;
+import org.example.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -207,5 +204,13 @@ public class ShoppingController {
         System.out.println(idList);
         return shoppingService.shoppingDelImgList(idList);
     }
+
+    //JSON
+    @CrossOrigin
+    @GetMapping("/json")
+    public List<json> jsonshow(){
+        return shoppingService.jsonshow();
+    }
+
 
 }

@@ -25,6 +25,7 @@ spring:
 mybatis:
   mapper-locations: classpath:config/*.xml #  指定xml映射文件,告诉spring
   type-aliases-package: org.example.entity # 实体类所在的位置
+  type-handlers-package: org.example.Controller #配置mybaits自定义类型转换类所在的包
 
   #pageHelper配置（官网推荐配置）
   pagehelpr:

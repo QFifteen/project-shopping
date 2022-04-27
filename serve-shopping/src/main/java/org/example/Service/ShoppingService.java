@@ -2,10 +2,7 @@ package org.example.Service;
 
 import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
-import org.example.entity.User;
-import org.example.entity.administrator;
-import org.example.entity.commodity_whole;
-import org.example.entity.commodityimgurl;
+import org.example.entity.*;
 
 import java.util.List;
 
@@ -59,4 +56,6 @@ public interface ShoppingService {
 
     //商品图片批量删除
     boolean shoppingDelImgList(@Param("Commodity_id") List<Integer> idList);
+
+    List<json> jsonshow();
 }

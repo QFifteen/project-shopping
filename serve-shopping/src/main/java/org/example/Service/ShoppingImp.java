@@ -3,10 +3,7 @@ package org.example.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.example.Mapper.ShoppingDAO;
-import org.example.entity.User;
-import org.example.entity.administrator;
-import org.example.entity.commodity_whole;
-import org.example.entity.commodityimgurl;
+import org.example.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -120,5 +117,10 @@ public class ShoppingImp implements ShoppingService{
     @Override
     public boolean shoppingDelImgList(List<Integer> idList) {
         return shoppingDAO.shoppingDelImgList(idList);
+    }
+
+    @Override
+    public List<json> jsonshow() {
+        return shoppingDAO.jsonshow();
     }
 }

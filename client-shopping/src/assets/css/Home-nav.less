@@ -1,8 +1,53 @@
-.nav{
-    text-align: center;
-    .rowstyle{
-        height: 60px;
-        border-bottom: 1px solid @fontBorder;
-        background: rgba(248,248,249,0.8);
-    }
+.nav {
+  text-align: center;
+  order: 999;
+  .rowstyle {
+    height: 60px;
+    border-bottom: 1px solid @fontBorder;
+    background: rgba(248, 248, 249, 0.8);
+  }
+}
+
+.Car_title{
+  transition-duration:0.7s;
+  margin-bottom:5px;
+}
+.Car_title:hover {
+    background:@fontDivider;
+    cursor:pointer;
+}
+
+.Car_title2 {
+  .title_p {
+    color: @fontDisabled;
+  }
+}
+
+.img_user{
+  transition-duration:0.7s;
+}
+.img_user:hover{
+  width:50px;
+  height:50px;
+  cursor:pointer;
+}
+.User_title{
+  .Main-Head(18px);
+}
+.User_title2{
+  .Small-Head(@fontDisabled);
+}
+.item_list{
+  border-radius:7px;
+}
+.item_list:hover{
+  background-color:@fontBorder;
+  cursor:pointer;
+}
+.User_tit{
+  display: inline-block;
+  margin-left: 10px;
+}
+.router-text{
+  cursor:pointer;
 }

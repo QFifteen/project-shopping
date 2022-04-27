@@ -23,9 +23,9 @@ Vue.prototype.$echarts = echarts
 
 
 Vue.use(VueLazyload, {
-	//图片加载失败时显示的图片
-	loading: require('./assets/images/Loading.gif'),
 	//图片正在加载时显示的图片
+	loading: require('./assets/images/Loading.gif'),
+	//图片加载失败时显示的图片
   error: require('./assets/images/fail.png')
 })
 
@@ -38,5 +38,6 @@ new Vue({
 
 //解决调转路由停留的想x，y的位置，顶部位置
 router.afterEach(() => {
-    window.scrollTo(0,0)
-})
+    document.querySelector("body").setAttribute("style", "overflow: auto !important;")
+    window.scrollTo(0,0);
+});

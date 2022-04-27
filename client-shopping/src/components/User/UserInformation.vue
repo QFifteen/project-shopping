@@ -3,12 +3,12 @@
   <article class="user-all">
     <Card>
       <p slot="title" class="title">
-        基本信息 <button class="but-up">修改</button
+        基本信息 <button class="but-up" @click="Updata">修改</button
         ><button class="but-up2">保存</button>
       </p>
       <article class="text1">
         <img
-          v-lazy="require('../../assets/images/logo/shiwu.jpg')"
+          v-lazy="formItem.img"
           alt="头像"
           width="100px"
           height="100px"
@@ -19,27 +19,29 @@
             <Input
               v-model="formItem.input"
               placeholder="Enter something..."
+              :disabled = "judge"
             ></Input>
           </FormItem>
           <FormItem label="个性签名:">
             <Input
-              v-model="formItem.text"
+              v-model="formItem.address"
               maxlength="30"
               show-word-limit
               type="textarea"
               placeholder="Enter something..."
               style="width: 200px"
+              :disabled = "judge"
             />
           </FormItem>
-          <FormItem label="性别:">
-            <RadioGroup>
-              <Radio label="apple">
+          <FormItem label="性别:" >
+            <RadioGroup :value = "formItem.gender" >
+              <Radio label="男士" :disabled = "judge">
                 <Icon type="logo-apple"></Icon>
-                <span>Apple</span>
+                <span>男士</span>
               </Radio>
-              <Radio label="android">
+              <Radio label="女士" :disabled = "judge">
                 <Icon type="logo-android"></Icon>
-                <span>Android</span>
+                <span>女士</span>
               </Radio>
             </RadioGroup>
           </FormItem>
@@ -53,10 +55,11 @@
               password
               placeholder="Enter something..."
               style="width: 200px"
+              :disabled = "true"
             />
           </FormItem>
           <FormItem label="用户等级:">
-            <InputNumber readonly></InputNumber>
+            <InputNumber readonly v-model="formItem.status" :disabled = "true"></InputNumber>
           </FormItem>
         </Form>
       </article>
@@ -107,8 +110,25 @@ export default {
   data() {
     return {
       formItem: {},
+      judge:true
     };
   },
-  methods: {},
+  methods: {
+    Usershow(){
+      this.formItem.input = localStorage["user_name"];
+      this.formItem.address = localStorage["user_address"];
+      this.formItem.pass = localStorage["user_pass"];
+      this.formItem.input = localStorage["user_name"];
+      this.formItem.status = new Number(localStorage["user_status"]);
+      this.formItem.gender = localStorage["user_gender"];
+      this.formItem.img = localStorage["user_img"];
+    },
+    Updata(){
+      this.judge = false;
+    }
+  },
+  created() {
+    this.Usershow();
+  }
 };
 </script>

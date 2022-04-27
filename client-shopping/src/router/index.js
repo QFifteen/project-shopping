@@ -12,6 +12,7 @@ const Detail = () => import('../views/Shopping-Detail.vue');
 const User = () => import('../views/User.vue');
 const UserInformation = () => import('../components/User/UserInformation.vue');
 const Order = () => import('../components/User/Order.vue');
+const User_history = () => import('../components/User/User_history');
 const error = () => import('../components/404');
 const diversity = () => import('../views/diversity');
 
@@ -86,6 +87,10 @@ const routes = [
                 path: 'Order',
                 component: Order,
             },
+            {
+                path:'User_history',
+                component:User_history
+            }
         ]
     },
     {

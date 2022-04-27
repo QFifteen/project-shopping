@@ -150,4 +150,14 @@
         </foreach>
     </delete>
 
+
+    <resultMap id="myjson" type="org.example.entity.json">
+        <id property="id" column="id"></id>
+        <result property="text" column="text" typeHandler="org.example.Controller.ObjectJsonHandler"></result>
+    </resultMap>
+
+    <select id="jsonshow" resultType="org.example.entity.json" resultMap="myjson">
+        SELECT * FROM jsondata;
+    </select>
+
 </mapper>

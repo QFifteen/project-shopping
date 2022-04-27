@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont-shopping"; /* Project id 2946158 */
-  src: url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.woff2?t=1641900824598') format('woff2'),
-  url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.woff?t=1641900824598') format('woff'),
-  url('//at.alicdn.com/t/font_2946158_hpt7savb6q8.ttf?t=1641900824598') format('truetype');
+  src: url('//at.alicdn.com/t/font_2946158_wgbo66n9z8c.woff2?t=1646275130547') format('woff2'),
+  url('//at.alicdn.com/t/font_2946158_wgbo66n9z8c.woff?t=1646275130547') format('woff'),
+  url('//at.alicdn.com/t/font_2946158_wgbo66n9z8c.ttf?t=1646275130547') format('truetype');
 }
 
 .iconfont-shopping {
@@ -11,6 +11,30 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.shop-shoucang:before {
+  content: "\e86d";
+}
+
+.shop-lishijilu_o:before {
+  content: "\eb7b";
+}
+
+.shop-qianming:before {
+  content: "\e6ca";
+}
+
+.shop-tuichudenglu:before {
+  content: "\e61e";
+}
+
+.shop-youjiantou1:before {
+  content: "\e68c";
+}
+
+.shop-dingdanzhongxin:before {
+  content: "\e626";
 }
 
 .shop-wangdianzhanghaozhongzhimima:before {

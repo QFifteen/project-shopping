@@ -13,14 +13,14 @@ export  let option = {
         x: "center",
         y: "bottom",
         data: [
-            "rose1",
-            "rose2",
-            "rose3",
-            "rose4",
-            "rose5",
-            "rose6",
-            "rose7",
-            "rose8",
+            "短袖",
+            "夹克",
+            "卫衣",
+            "长裤",
+            "帽子",
+            "衬衫",
+            "男士皮鞋",
+            "女士休闲裤",
         ],
     },
     toolbox: {
@@ -49,14 +49,14 @@ export  let option = {
             max: 40, // for funnel
             sort: "ascending", // for funnel
             data: [
-                { value: 10, name: "rose1" },
-                { value: 5, name: "rose2" },
-                { value: 15, name: "rose3" },
-                { value: 25, name: "rose4" },
-                { value: 20, name: "rose5" },
-                { value: 35, name: "rose6" },
-                { value: 30, name: "rose7" },
-                { value: 40, name: "rose8" },
+                { value: 10, name: "男士T恤" },
+                { value: 5, name: "男士夹克" },
+                { value: 15, name: "卫衣" },
+                { value: 25, name: "长裤" },
+                { value: 20, name: "帽子" },
+                { value: 35, name: "衬衫" },
+                { value: 30, name: "男士皮鞋" },
+                { value: 40, name: "女士休闲裤" },
             ],
         },
     ],
@@ -65,8 +65,7 @@ export  let option = {
 //分类占比图
 export let option2 = {
     title : {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
+        text: '伍蒙用户访问来源',
         x:'center'
     },
     tooltip : {
@@ -76,7 +75,7 @@ export let option2 = {
     legend: {
         orient : 'vertical',
         x : 'left',
-        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        data:['直接访问','邮件营销','品牌推广','视频广告','搜索引擎']
     },
     toolbox: {
         show : true,
@@ -109,7 +108,7 @@ export let option2 = {
             data:[
                 {value:335, name:'直接访问'},
                 {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
+                {value:234, name:'品牌推广'},
                 {value:135, name:'视频广告'},
                 {value:1548, name:'搜索引擎'}
             ]
@@ -123,7 +122,7 @@ export let option3 = {
         trigger: 'axis'
     },
     legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['邮件营销','品牌推广','视频广告','直接访问','搜索引擎']
     },
     toolbox: {
         show : true,
@@ -156,7 +155,7 @@ export let option3 = {
             data:[120, 132, 101, 134, 90, 230, 210]
         },
         {
-            name:'联盟广告',
+            name:'品牌推广',
             type:'line',
             stack: '总量',
             data:[220, 182, 191, 234, 290, 330, 310]
